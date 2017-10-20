@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>{{userID}}</div>\n"
+module.exports = "<div>{{userID}}</div>\n<div>{{authKey}}</div>\n"
 
 /***/ }),
 
@@ -66,7 +66,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = (function () {
     function AppComponent(windowRef, utils) {
-        this.userID = utils.q2ajx(windowRef.nativeWindow.location.search.replace(/^\?/, ''))[__WEBPACK_IMPORTED_MODULE_3__app_constants__["a" /* userKeyUrl */]];
+        var a2ajx = windowRef.nativeWindow.location.search.replace(/^\?/, '');
+        this.userID = a2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["b" /* userKeyUrl */]];
+        this.authKey = a2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["a" /* userAuthKeyUrl */]];
     }
     return AppComponent;
 }());
@@ -88,8 +90,10 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return userKeyUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return userKeyUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return userAuthKeyUrl; });
 var userKeyUrl = 'viewer_id';
+var userAuthKeyUrl = 'auth_key';
 //# sourceMappingURL=app.constants.js.map
 
 /***/ }),
