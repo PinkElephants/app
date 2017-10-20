@@ -50,6 +50,7 @@ module.exports = "<div>{{userID}}</div>\n"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_window_service__ = __webpack_require__("../../../../../src/app/services/window.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_constants__ = __webpack_require__("../../../../../src/app/app.constants.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,9 +63,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
     function AppComponent(windowRef, utils) {
-        this.userID = 4444;
+        this.userID = utils.q2ajx(windowRef.nativeWindow.location.search.replace(/^\?/, ''))[__WEBPACK_IMPORTED_MODULE_3__app_constants__["a" /* userKeyUrl */]];
     }
     return AppComponent;
 }());
@@ -79,6 +81,16 @@ AppComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.constants.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return userKeyUrl; });
+var userKeyUrl = 'viewer_id';
+//# sourceMappingURL=app.constants.js.map
 
 /***/ }),
 
@@ -147,13 +159,13 @@ var UtilsService = (function () {
     function UtilsService(windowRef) {
         this.window = windowRef.nativeWindow;
     }
-    UtilsService.isFunction = function (obj) {
+    UtilsService.prototype.isFunction = function (obj) {
         return Object.prototype.toString.call(obj) === '[object Function]';
     };
-    UtilsService.isArray = function (obj) {
+    UtilsService.prototype.isArray = function (obj) {
         return Object.prototype.toString.call(obj) === '[object Array]';
     };
-    UtilsService.uniq = function (array) {
+    UtilsService.prototype.uniq = function (array) {
         var result = [];
         for (var i = 0; i < array.length; ++i) {
             if (result.indexOf(array[i]) === -1) {
@@ -162,7 +174,7 @@ var UtilsService = (function () {
         }
         return result;
     };
-    UtilsService.ajx2q = function (qa) {
+    UtilsService.prototype.ajx2q = function (qa) {
         var query = [], enc = function (str) {
             if (window._decodeEr && window._decodeEr[str]) {
                 return str;
@@ -194,7 +206,7 @@ var UtilsService = (function () {
         query.sort();
         return query.join('&');
     };
-    UtilsService.q2ajx = function (qa) {
+    UtilsService.prototype.q2ajx = function (qa) {
         if (!qa) {
             return {};
         }
@@ -232,7 +244,7 @@ var UtilsService = (function () {
         });
         return query;
     };
-    UtilsService.applyTemplate = function (template, replacements) {
+    UtilsService.prototype.applyTemplate = function (template, replacements) {
         return template.replace(/{(\w+)}/g, function (e, n) {
             return undefined !== replacements[n] ? encodeURIComponent(replacements[n]) : '';
         });
