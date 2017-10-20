@@ -66,7 +66,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = (function () {
     function AppComponent(windowRef, utils) {
-        var a2ajx = windowRef.nativeWindow.location.search.replace(/^\?/, '');
+        var a2ajx = utils.ajx2q(windowRef.nativeWindow.location.search.replace(/^\?/, ''));
         this.userID = a2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["b" /* userKeyUrl */]];
         this.authKey = a2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["a" /* userAuthKeyUrl */]];
     }
