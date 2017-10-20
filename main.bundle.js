@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{title}}!\n  </h1>\n  <img width=\"300\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<div>{{userID}}</div>\n"
 
 /***/ }),
 
@@ -48,16 +48,23 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_window_service__ = __webpack_require__("../../../../../src/app/services/window.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'app';
+    function AppComponent(windowRef, utils) {
+        this.userID = 4444;
     }
     return AppComponent;
 }());
@@ -66,9 +73,11 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_window_service__["a" /* WindowRefService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_window_service__["a" /* WindowRefService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]) === "function" && _b || Object])
 ], AppComponent);
 
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -81,12 +90,16 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_window_service__ = __webpack_require__("../../../../../src/app/services/window.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -103,12 +116,172 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_3__services_window_service__["a" /* WindowRefService */], __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/utils.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilsService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__window_service__ = __webpack_require__("../../../../../src/app/services/window.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UtilsService = (function () {
+    function UtilsService(windowRef) {
+        this.window = windowRef.nativeWindow;
+    }
+    UtilsService.isFunction = function (obj) {
+        return Object.prototype.toString.call(obj) === '[object Function]';
+    };
+    UtilsService.isArray = function (obj) {
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    };
+    UtilsService.uniq = function (array) {
+        var result = [];
+        for (var i = 0; i < array.length; ++i) {
+            if (result.indexOf(array[i]) === -1) {
+                result.push(array[i]);
+            }
+        }
+        return result;
+    };
+    UtilsService.ajx2q = function (qa) {
+        var query = [], enc = function (str) {
+            if (window._decodeEr && window._decodeEr[str]) {
+                return str;
+            }
+            try {
+                return encodeURIComponent(str);
+            }
+            catch (e) {
+                return str;
+            }
+        };
+        for (var key in qa) {
+            if (qa[key] == null || this.isFunction(qa[key])) {
+                continue;
+            }
+            if (this.isArray(qa[key])) {
+                for (var i = 0, c = 0, l = qa[key].length; i < l; ++i) {
+                    if (qa[key][i] == null || this.isFunction(qa[key][i])) {
+                        continue;
+                    }
+                    query.push(enc(key) + '[' + c + ']=' + enc(qa[key][i]));
+                    ++c;
+                }
+            }
+            else {
+                query.push(enc(key) + '=' + enc(qa[key]));
+            }
+        }
+        query.sort();
+        return query.join('&');
+    };
+    UtilsService.q2ajx = function (qa) {
+        if (!qa) {
+            return {};
+        }
+        var query = {}, dec = function (str) {
+            try {
+                return decodeURIComponent(str);
+            }
+            catch (e) {
+                window._decodeEr = window._decodeEr || {};
+                window._decodeEr[str] = 1;
+                return str;
+            }
+        };
+        qa = qa.split('&');
+        qa.forEach(function (a, i) {
+            var t = a.split('=');
+            if (t[0]) {
+                if (t[1]) {
+                    var v = dec(t[1] + '');
+                    if (t[0].substr(t.length - 2) === '[]') {
+                        var k = dec(t[0].substr(0, t.length - 2));
+                        if (!query[k]) {
+                            query[k] = [];
+                        }
+                        query[k].push(v);
+                    }
+                    else {
+                        query[dec(t[0])] = v;
+                    }
+                }
+                else {
+                    query[dec(t[0])] = t[1];
+                }
+            }
+        });
+        return query;
+    };
+    UtilsService.applyTemplate = function (template, replacements) {
+        return template.replace(/{(\w+)}/g, function (e, n) {
+            return undefined !== replacements[n] ? encodeURIComponent(replacements[n]) : '';
+        });
+    };
+    return UtilsService;
+}());
+UtilsService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__window_service__["a" /* WindowRefService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__window_service__["a" /* WindowRefService */]) === "function" && _a || Object])
+], UtilsService);
+
+var _a;
+//# sourceMappingURL=utils.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/window.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WindowRefService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+function getWindow() {
+    return window;
+}
+var WindowRefService = (function () {
+    function WindowRefService() {
+    }
+    Object.defineProperty(WindowRefService.prototype, "nativeWindow", {
+        get: function () {
+            return getWindow();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return WindowRefService;
+}());
+WindowRefService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+], WindowRefService);
+
+//# sourceMappingURL=window.service.js.map
 
 /***/ }),
 
