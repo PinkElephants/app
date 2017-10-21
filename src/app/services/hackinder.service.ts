@@ -4,10 +4,16 @@ import * as Rx from  "rxjs"
 import {FavouriteMatch} from "../models/favourite-match";
 import {ApiService} from "./api.service";
 import {Injectable} from "@angular/core";
+import {Subject} from "rxjs/Subject";
+import {userAuthKeyUrl, userKeyUrl} from "../app.constants";
 @Injectable()
 export class HackinderService {
   constructor(private api: ApiService){}
   public userSkills$: BehaviorSubject<any[]> = new BehaviorSubject(null);
+  public user$: Subject<{}> =  new Subject();
+  public possibleMatches$: BehaviorSubject<any[]> =  new BehaviorSubject<any[]>([]);
+  public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
+
   public addSkill(skill: string) {
     this.user.skills.push(skill);
     this.userSkills$.next(this.user.skills.slice());
@@ -23,10 +29,7 @@ export class HackinderService {
   public getUser(id){
     return this.api.getUser(id);
   }
-  public mergeUser(hackData, vkData){
 
-  }
-  public possibleMatches$: BehaviorSubject<any[]> =  new BehaviorSubject<any[]>([]);
   public getPossibleMatches(){
     this.api.getPossibleMatches()
       .subscribe((response: any[]) => {
@@ -34,7 +37,6 @@ export class HackinderService {
           this.api.fetchUsers(response.map((data: any) => data.user_id))
             .subscribe((response2)=>{
               const merge = response.map((item)=>{
-                debugger;
                 for(let i = 0; i< response2.response.length; ++i){
                   if(response2.response[i].uid +'' === item.user_id){
                     return Object.assign({}, item, response2.response[i], {user_id: +item.user_id});
