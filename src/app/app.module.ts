@@ -20,6 +20,7 @@ import {JsonpModule} from "@angular/http";
 import {AuthInterceptor} from "./services/http.intercept";
 import {AuthService} from "./services/auth.service";
 import {SkillsComponent} from "./components/skills-component/skills-component";
+import {CardPreviewComponent} from "./components/card-preview.component/card-preview.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     MatchedPageComponent,
     CardComponent,
-    SkillsComponent
+    SkillsComponent,
+    CardPreviewComponent
   ],
   imports: [
     BrowserModule,

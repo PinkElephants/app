@@ -1,0 +1,57 @@
+.matches-page {
+  color: black;
+  padding-top:50px;
+  text-align:center;
+  &__logo {
+    margin-bottom:20px;
+  }
+  &__previews {
+    position: relative;
+    height:524px;
+    width:402px;
+    margin:auto;
+    overflow: hidden;
+  }
+  &__preview{
+    position: absolute;
+    left:0;
+    top:0;
+  }
+}
+.matches-page-skills {
+  text-align:center;
+  &__heading {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 21px
+  }
+}
+.table {
+  display: table;
+  width:100%;
+  &__cell {
+    display: table-cell;
+    &_left, &_right {
+      width:50%;
+      vertical-align: middle;
+    }
+  }
+}
+.matches-page__action {
+  &_like {
+    &:hover {
+      #fillable_back {
+        fill: #32BF00;
+      }
+      #fillable_border {
+        fill: #32BF00;
+      }
+      #fillable_icon {
+        fill:#fff;
+      }
+    }
+  }
+
+}

@@ -49,8 +49,10 @@ export class HomePageComponent implements  OnInit {
   }
   submitUser(){
     this.hackService.updateUser().subscribe((response)=>{
-      debugger;
-    })
+      this.router.navigate(['/find']);
+    }, (response)=>{
+      this.router.navigate(['/find']);
+    });
   }
   skillOnDelete(index: number){
     debugger
