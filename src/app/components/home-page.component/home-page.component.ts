@@ -10,7 +10,10 @@ import {HackinderService} from '../../services/hackinder.service';
   selector: 'home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'style': 'height: 100%; display: block'
+  }
 })
 export class HomePageComponent implements AfterViewInit{
   skillsCtrl: FormControl;
