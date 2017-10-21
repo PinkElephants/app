@@ -20,7 +20,6 @@ export class FindPageComponent{
     this.hackinderService.possibleMatches$.subscribe((matches)=>{
       this.possibleMatches =  this.possibleMatches.concat(matches);
       this._ref.detectChanges();
- console.log(matches);
     });
   }
 }

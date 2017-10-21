@@ -15,7 +15,7 @@ export class HackinderService {
   public user$: Subject<{}> =  new Subject();
   public possibleMatches$: BehaviorSubject<any[]> =  new BehaviorSubject<any[]>([]);
   public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
-
+  public loading$: BehaviorSubject<boolean> =  new BehaviorSubject(true);
   public addSkill(skill: string) {
     this.user.skills.push(skill);
     this.userSkills$.next(this.user.skills.slice());
@@ -27,9 +27,18 @@ export class HackinderService {
   private user =  {
     skills: []
   };
+  public updateUser(){
+    debugger;
+   return this.api.updateUser(this.user);
+  }
 
   public getUser(id){
-    return this.api.getUser(id);
+    return this.api.getUser(id).mergeMap(user => this.api.fetchUsers([id]), (hackUser, vkUser) => {
+      return hackUser;
+    });
+  }
+  public setLoading(bool: boolean){
+    this.loading$.next(bool);
   }
 
   public getPossibleMatches(){
@@ -60,7 +69,7 @@ export class HackinderService {
       .map(items => items.response)
       .map((items: any) => {
         return items.map(item => {
-          var match: FavouriteMatch = {
+          const match: FavouriteMatch = {
             id: item.uid,
             firstName: item.first_name,
             lastName: item.last_name,

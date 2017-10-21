@@ -8,13 +8,12 @@ const VK_ENDPOINT = 'https://api.vk.com/method/';
 export class ApiService {
   constructor(private http: HttpClient, private _jsonp: Jsonp) {}
   public getUser(id: number) {
-    return this.http.get(HICKTINDER_ENDPOINT + 'user').subscribe((response) => {
-      return response;
-    }, () => {
-      //..
-    });
+    return this.http.get(HICKTINDER_ENDPOINT + 'user');
   }
 
+  public updateUser(user){
+    return this.http.post(HICKTINDER_ENDPOINT + 'user',  user);
+  }
   public fetchUsers(ids: number[]){
     return this._jsonp.get(VK_ENDPOINT + 'users.get?user_ids=' + ids.join(',') + '&fields=photo_max_orig&callback=JSONP_CALLBACK')
       .map((response) => response.json());
