@@ -31,6 +31,33 @@
       }
     }
   }
+
+  .header__link_active{
+    #Rectangle{
+      use{
+        fill: @dark_red;
+      }
+      //#FFFFFF
+    }
+
+    #Canvas{
+      g:first-child{
+        g:nth-child(2){
+          #Group{
+            #Vector{
+              use{
+                fill: @white;
+              }
+            }
+          }
+        }
+
+        g:nth-child(3){
+          fill: @white;
+        }
+      }
+    }
+  }
 }
 .header__section {
  //background: url('../../../assets/logo_small.svg') 50% 50% no-repeat;
