@@ -8,7 +8,6 @@ import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/switchMap';
 import "rxjs/add/operator/mergeMap";
 
-import {userAuthKeyUrl, userKeyUrl} from "../app.constants";
 @Injectable()
 export class HackinderService {
   constructor(private api: ApiService){}
