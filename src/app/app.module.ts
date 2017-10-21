@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {WindowRefService} from './services/window.service';
@@ -17,6 +17,8 @@ import {HeaderComponent} from './components/header.component/header.component';
 import {FavouritePageComponent} from "./components/favourite.component/favourite.component";
 import {CardComponent} from './components/card.component/card.component';
 import {JsonpModule} from "@angular/http";
+import {AuthInterceptor} from "./services/http.intercept";
+import {AuthService} from "./services/auth.service";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -49,7 +51,13 @@ const appRoutes: Routes = [
     JsonpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [WindowRefService, UtilsService, HackinderService, ApiService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    WindowRefService, AuthService, UtilsService, HackinderService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

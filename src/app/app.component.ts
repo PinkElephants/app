@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import {WindowRefService} from './services/window.service';
 import { UtilsService} from './services/utils.service';
 import {userAuthKeyUrl, userKeyUrl} from './app.constants';
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,14 @@ import {userAuthKeyUrl, userKeyUrl} from './app.constants';
   }
 })
 export class AppComponent {
-  public userID: number;
+  public userID: string;
   public authKey: string;
-  constructor(windowRef: WindowRefService, utils: UtilsService) {
+  constructor(windowRef: WindowRefService, utils: UtilsService, auth: AuthService) {
     const q2ajx = utils.q2ajx(<any>windowRef.nativeWindow.location.search.replace(/^\?/, ''));
     this.userID = q2ajx[userKeyUrl];
     this.authKey = q2ajx[userAuthKeyUrl];
+    this.authKey = '3698302d5f1b2b85ad948ecbbdf18db0';
+    this.userID = '17864153';
+    auth.storeCredentials(this.authKey, this.userID);
   }
 }
