@@ -14,7 +14,7 @@ import {SkillComponent} from './components/skill-tag.component/skill-tag.compone
 import { RouterModule, Routes } from '@angular/router';
 import {FindPageComponent} from './components/find-page.component/find-page.component';
 import {HeaderComponent} from './components/header.component/header.component';
-import {FavouritePageComponent} from "./components/favourite.component/favourite.component";
+import {MatchedPageComponent} from "./components/matched-page.component/matched.component";
 import {CardComponent} from './components/card.component/card.component';
 import {JsonpModule} from "@angular/http";
 import {AuthInterceptor} from "./services/http.intercept";
@@ -23,7 +23,7 @@ import {AuthService} from "./services/auth.service";
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'find', component: FindPageComponent },
-  { path: 'favourite-matches', component: FavouritePageComponent },
+  { path: 'matched', component: MatchedPageComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     SkillComponent,
     FindPageComponent,
     HeaderComponent,
-    FavouritePageComponent,
+    MatchedPageComponent,
     CardComponent
   ],
   imports: [

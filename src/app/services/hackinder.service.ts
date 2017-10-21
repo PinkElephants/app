@@ -54,19 +54,21 @@ export class HackinderService {
       });
   }
 
-  public getFavouriteMatches(): Observable<FavouriteMatch> {
+  public getFavouriteMatches(): Observable<FavouriteMatch[]> {
     return this.api.getFavouriteMatches()
       .map(users => users.map(x => x.user_id))
-      .mergeMap((ids:any) => this.api.fetchUsers(ids))
-      .mergeMap(items => Rx.Observable.of(items))
-      .map((item:any) => {
-        var match: FavouriteMatch = {
-          id: item.id,
-          firstName: item.first_name,
-          lastName: item.last_name,
-          photoUrl: item.photo_max_orig
-        };
-        return match;
+      .mergeMap((ids: any) => this.api.fetchUsers(ids))
+      .map(items => items.response)
+      .map((items: any) => {
+        return items.map(item => {
+          var match: FavouriteMatch = {
+            id: item.uid,
+            firstName: item.first_name,
+            lastName: item.last_name,
+            photoUrl: item.photo_max_orig
+          };
+          return match;
+        });
       });
   }
 }

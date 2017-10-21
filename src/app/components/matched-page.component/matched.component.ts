@@ -3,11 +3,11 @@ import {HackinderService} from "../../services/hackinder.service";
 import {FavouriteMatch} from "../../models/favourite-match";
 
 @Component({
-  selector: 'favourite-page',
-  templateUrl: './favourite.component.html',
-  styleUrls: ['./favourite.component.less']
+  selector: 'matched-page',
+  templateUrl: './matched.component.html',
+  styleUrls: ['./matched.component.less']
 })
-export class FavouritePageComponent implements AfterViewInit {
+export class MatchedPageComponent implements AfterViewInit {
   matches: FavouriteMatch[] = [];
 
   constructor(private hackService: HackinderService) {
@@ -16,8 +16,9 @@ export class FavouritePageComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.hackService
       .getFavouriteMatches()
-      .subscribe(match => {
-        this.matches.push(match)
+      .subscribe(fetched => {
+        debugger;
+        this.matches = fetched;
       });
 
   }
