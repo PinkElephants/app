@@ -69,7 +69,7 @@ export class HackinderService {
       .map(items => items.response)
       .map((items: any) => {
         return items.map(item => {
-          var match: FavouriteMatch = {
+          const match: FavouriteMatch = {
             id: item.uid,
             firstName: item.first_name,
             lastName: item.last_name,
