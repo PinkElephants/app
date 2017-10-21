@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowRefService, UtilsService, HackinderService, ApiService],
   bootstrap: [AppComponent]
