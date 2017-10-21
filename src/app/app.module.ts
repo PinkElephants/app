@@ -14,6 +14,7 @@ import {SkillComponent} from './components/skill-tag.component/skill-tag.compone
 import { RouterModule, Routes } from '@angular/router';
 import {FindPageComponent} from './components/find-page.component/find-page.component';
 import {HeaderComponent} from './components/header.component/header.component';
+import {CardComponent} from './components/card.component/card.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     HomePageComponent,
     SkillComponent,
     FindPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
