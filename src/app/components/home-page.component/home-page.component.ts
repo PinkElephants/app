@@ -1,10 +1,17 @@
-import {Component, ElementRef, ChangeDetectionStrategy, Renderer, AfterViewInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  Component, ElementRef, ChangeDetectionStrategy, Renderer, AfterViewInit, Renderer2, ViewChild,
+  OnInit
+} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {HackinderService} from '../../services/hackinder.service';
+import {AuthService} from "../../services/auth.service";
+import {userKeyUrl} from "../../app.constants";
+import {ActivatedRoute, Router} from "@angular/router";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'home-page',
@@ -15,27 +22,41 @@ import {HackinderService} from '../../services/hackinder.service';
     'style': 'height: 100%; display: block'
   }
 })
-export class HomePageComponent implements AfterViewInit{
-  skillsCtrl: FormControl;
-  @ViewChild('skills') skillInput: ElementRef;
-  constructor(private renderer: Renderer2, private hackService: HackinderService) {
-    this.skillsCtrl = new FormControl();
-    this.skillsValues = hackService.userSkills$;
+export class HomePageComponent implements  OnInit {
+  constructor(private renderer: Renderer2, private hackService: HackinderService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private auth: AuthService) {
+    this.skillsValues$ = hackService.userSkills$;
   }
+  public skillsValues$: any;
 
-  public skillsValues: any;
-
-  skillOnDelete(index: number){
-    this.hackService.deleteSkill(index);
-  }
-  ngAfterViewInit() {
-    this.renderer.listen(this.skillInput.nativeElement, 'keypress', (evt) => {
-      if (evt.charCode === 13) {
-        this.hackService.addSkill(this.skillsCtrl.value);
-        this.skillsCtrl.setValue('');
+  public loading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  ngOnInit(){
+    this.route.params.subscribe((params)=>{
+      if(params['edit']){
+        this.hackService.getUser(this.auth.getCredentials()[userKeyUrl]).subscribe((data)=>{
+          debugger;
+          setTimeout(()=>{
+            this.router.navigate(['/find']);}, 3000)
+        }, (error)=>{ //404
+          this.loading$.next(false);
+        });
+      } else {
+        this.loading$.next(false);
       }
     });
   }
+  submitUser(){
+    this.hackService.updateUser().subscribe((response)=>{
+      debugger;
+    })
+  }
+  skillOnDelete(index: number){
+    debugger
+    this.hackService.deleteSkill(index);
+  }
+
 
 }
 

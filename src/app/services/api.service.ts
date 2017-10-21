@@ -8,13 +8,12 @@ const VK_ENDPOINT = 'https://api.vk.com/method/';
 export class ApiService {
   constructor(private http: HttpClient, private _jsonp: Jsonp) {}
   public getUser(id: number) {
-    return this.http.get(HICKTINDER_ENDPOINT + 'user').subscribe((response) => {
-      return response;
-    }, () => {
-      //..
-    });
+    return this.http.get(HICKTINDER_ENDPOINT + 'user');
   }
 
+public updateUser(user){
+   return this.http.post(HICKTINDER_ENDPOINT + 'user',  user);
+}
   public fetchUserss(ids: string[]):Observable<any>{
     return Observable.from([1,2,3]);
   }

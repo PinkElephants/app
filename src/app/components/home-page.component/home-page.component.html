@@ -1,24 +1,23 @@
 <div class="container">
   <div class="container__inner">
-  <div class="container__header">
-    <img class="container__logo" src="../../../assets/logo.svg"/>
-    <h2 class="container__title">
-      Найди того самого тимейта
-    </h2>
-  </div>
+    <div class="container__header">
+      <img class="container__logo" src="../../../assets/logo.svg"/>
+      <h2 class="container__title">
+        Найди того самого тимейта
+      </h2>
+    </div>
+    <div *ngIf="loading$ | async">
+      loading...
+    </div>
 
-    <div class="skill-section">
+    <div  *ngIf="!(loading$ | async)">
+      <skills (onDelete)="skillOnDelete($event)" [skills]="skillsValues$|async"></skills>
       <mat-form-field class="mat-field-full-width">
-        <input matInput autocomplete="off" placeholder="Укажите ваши навыки" [formControl]="skillsCtrl" #skills>
+        <textarea matInput  matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
       </mat-form-field>
-      <div class="skill-section__skills">
-      <skill *ngFor="let skill of skillsValues | async; let _index = index" [value]="skill" [isRemovable]="true"  [index]="_index" (onDelete)="skillOnDelete($event)"></skill>
+      <button class="button" (click)="submitUser()" class="container__button button">Перейти к поиску тимейтов</button>
     </div>
-    </div>
-    <mat-form-field class="mat-field-full-width">
-      <textarea matInput  matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
-    </mat-form-field>
-
-  <button class="button" class="container__button button">Перейти к поиску тимейтов</button>
   </div>
+
+
 </div>

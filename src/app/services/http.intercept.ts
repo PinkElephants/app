@@ -8,12 +8,12 @@ import {AuthService} from "./auth.service";
 export class AuthInterceptor implements HttpInterceptor {
   private authKey: string;
   private viewerId: string;
-  constructor(auth: AuthService){
-     this.authKey =  auth.getCredentials()[userAuthKeyUrl];
-       this.viewerId =  auth.getCredentials()[userKeyUrl];
+  constructor(private auth: AuthService){
+
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
+    this.authKey =  this.auth.getCredentials()[userAuthKeyUrl];
+    this.viewerId =  this.auth.getCredentials()[userKeyUrl];
       const changedReq = req.clone(
         {
           headers: req.headers

@@ -1,0 +1,9 @@
+<div class="skill-section">
+  <mat-form-field class="mat-field-full-width">
+    <input matInput autocomplete="off" placeholder="Укажите ваши навыки" [formControl]="skillsCtrl" #skillsInput>
+  </mat-form-field>
+  <div class="skill-section__skills">
+    <skill *ngFor="let skill of skills; let _index = index" [value]="skill" [isRemovable]="true"  [index]="_index"
+           (onDelete)="onDelete.emit($event)"></skill>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/switchMap';
 import "rxjs/add/operator/mergeMap";
 
-import {userAuthKeyUrl, userKeyUrl} from "../app.constants";
 @Injectable()
 export class HackinderService {
   constructor(private api: ApiService){}
@@ -16,7 +15,7 @@ export class HackinderService {
   public user$: Subject<{}> =  new Subject();
   public possibleMatches$: BehaviorSubject<any[]> =  new BehaviorSubject<any[]>([]);
   public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
-
+  public loading$: BehaviorSubject<boolean> =  new BehaviorSubject(true);
   public addSkill(skill: string) {
     this.user.skills.push(skill);
     this.userSkills$.next(this.user.skills.slice());
@@ -28,9 +27,18 @@ export class HackinderService {
   private user =  {
     skills: []
   };
+  public updateUser(){
+    debugger;
+   return this.api.updateUser(this.user);
+  }
 
   public getUser(id){
-    return this.api.getUser(id);
+    return this.api.getUser(id).mergeMap(user => this.api.fetchUsers([id]), (hackUser, vkUser) => {
+      return hackUser;
+    });
+  }
+  public setLoading(bool: boolean){
+    this.loading$.next(bool);
   }
 
   public getPossibleMatches(){
@@ -60,13 +68,12 @@ export class HackinderService {
       .mergeMap((ids:any) => this.api.fetchUsers(ids))
       .mergeMap(items => Rx.Observable.of(items))
       .map((item:any) => {
-        var match: FavouriteMatch = {
+        return {
           id: item.id,
           firstName: item.first_name,
           lastName: item.last_name,
           photoUrl: item.photo_max_orig
         };
-        return match;
       });
   }
 }
