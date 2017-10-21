@@ -1,6 +1,6 @@
-<div class="skill">
+<div class="skill" [ngClass]="{'skill_shadow': hasShadow}">
   <span class="skill__name">
     {{value}}
   </span>
-  <img src="../../../assets/cross.svg" class="skill__icon" (click)="onDelete.emit(index)"/>
+  <img *ngIf="isRemovable" src="../../../assets/cross.svg" class="skill__icon" (click)="onDelete.emit(index)"/>
 </div>

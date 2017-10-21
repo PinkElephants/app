@@ -1,0 +1,29 @@
+@import '../../variables.less';
+.card {
+  position: absolute;
+  left:0;
+  top:0;
+  background: @white;
+  &__cell {
+    display: table-cell;
+    &_left {
+      width:100%;
+    }
+  }
+  &__name{
+    font-size: 27px;
+    color: black;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  &__specialization {
+    font-size: 21px;
+    color: gray;
+    margin:0;
+  }
+  &__skills {
+    margin-top: 20px;
+    padding:6px;
+  }
+}

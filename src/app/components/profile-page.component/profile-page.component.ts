@@ -1,4 +1,5 @@
 import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'profile',
@@ -6,7 +7,14 @@ import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
   styleUrls: ['./profile-page.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardComponent {
-  @Input() user:any;
+export class ProfilePageComponent {
+  constructor(private route: ActivatedRoute) {
+
+  }
+  ngOnInit() {
+    const user = this.route.params.subscribe(params => {
+     //
+    });
+  }
 }
 

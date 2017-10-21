@@ -11,6 +11,7 @@ import {
 })
 export class SkillComponent {
   @Input() public  value: string;
+  @Input() public  hasShadow?: boolean;
   @Input() public  index: number;
   @Input() public  isRemovable = false;
   @Output() onDelete =  new EventEmitter();

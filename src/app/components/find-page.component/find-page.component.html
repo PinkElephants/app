@@ -1,2 +1,12 @@
-<header-page></header-page>
-<card></card>
+<div class="flex-layout">
+  <div class="flex-layout__header">
+    <header-page></header-page>
+  </div>
+    <div class="flex-layout__content">
+      <card *ngFor="let user of possibleMatches" [user]="user"></card>
+  </div>
+</div>
+
+
+
+

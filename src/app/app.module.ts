@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {FindPageComponent} from './components/find-page.component/find-page.component';
 import {HeaderComponent} from './components/header.component/header.component';
 import {CardComponent} from './components/card.component/card.component';
+import {JsonpModule} from "@angular/http";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
+    JsonpModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowRefService, UtilsService, HackinderService, ApiService],

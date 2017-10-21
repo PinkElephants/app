@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card__photo">
+    {{user.first_name}}
+    <img class="card__image" src="{{user.photo_max_orig}}"/>
+  </div>
+  <div class="card__bottom">
+    <div class="card__cell card__cell_left">
+      <h4 class="card__name">Александр, 24 года</h4>
+      <span class="card__specialization">Front-end разработчик</span>
+      <div class="card__skills">
+        <skill *ngFor="let skill of user.skills" [value]="skill" [hasShadow]="true"></skill>
+      </div>
+    </div>
+    <div class="card__cell">
+
+    </div>
+  </div>
+</div>
