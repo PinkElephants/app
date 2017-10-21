@@ -25,8 +25,12 @@ export class HackinderService {
     this.userSkills$.next(this.user.skills.slice());
   }
 
-  public setIdea(idea:String){
+  public setIdea(idea:string){
+    this.user.idea = idea;
+  }
 
+  public setSummary(summary:string){
+    this.user.summary = summary;
   }
 
   private user =  {

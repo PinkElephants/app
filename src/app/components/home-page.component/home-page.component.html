@@ -13,10 +13,10 @@
     <div  *ngIf="!(loading$ | async)">
       <skills (onDelete)="skillOnDelete($event)" [skills]="skillsValues$|async"></skills>
       <mat-form-field class="mat-field-full-width">
-        <textarea matInput matTextareaAutosize placeholder="Специализация (front-end, back-end, дизайн ...)"></textarea>
+        <textarea [(ngModel)] = "summary" matInput matTextareaAutosize placeholder="Специализация (front-end, back-end, дизайн ...)"></textarea>
       </mat-form-field>
-      <mat-form-field class="mat-field-full-width">
-        <textarea matInput  matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
+      <mat-form-field class="mat-field-full-width" >
+        <textarea [(ngModel)] = "idea" matInput  matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
       </mat-form-field>
       <button class="button" (click)="submitUser()" class="container__button button">Перейти к поиску тимейтов</button>
     </div>
