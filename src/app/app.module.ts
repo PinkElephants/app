@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {FindPageComponent} from './components/find-page.component/find-page.component';
 import {HeaderComponent} from './components/header.component/header.component';
 import {FavouritePageComponent} from "./components/favourite.component/favourite.component";
+import {CardComponent} from './components/card.component/card.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     SkillComponent,
     FindPageComponent,
     HeaderComponent,
-    FavouritePageComponent
+    FavouritePageComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
