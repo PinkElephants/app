@@ -32,8 +32,11 @@
           <h3 class="matches-page-skills__heading">
             Перечень навыков
           </h3>
-          <skill *ngFor="let skill of possibleMatches[0].skills" [value]="skill" [hasShadow]="true"></skill>
+          <div class="matches-page-skills__list">
+            <skill *ngFor="let skill of possibleMatches[0].skills" [value]="skill" [hasShadow]="true"></skill>
+          </div>
         </div>
+          <button class="button">Посмотреть дополнительную информацию</button>
         </div>
       </div>
   </div>
