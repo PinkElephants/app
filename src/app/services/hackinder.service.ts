@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {ApiService} from './api.service';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Observable} from "rxjs/Observable";
+import {FavouriteMatch} from "../models/favourite-match";
 export class HackinderService {
 
   public userSkills$: BehaviorSubject<any[]> = new BehaviorSubject(null);
@@ -18,5 +18,11 @@ export class HackinderService {
 
   public getUser(id){
     //return this.api.fetchUser(id);
+  }
+
+  public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
+  public getFavouriteMatches(): Observable<FavouriteMatch>{
+    //favouriteMatches$.next(new FavouriteMatch())
+    return null;
   }
 }
