@@ -11,6 +11,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HackinderService} from './services/hackinder.service';
 import {ApiService} from './services/api.service';
 import {SkillComponent} from './components/skill-tag.component/skill-tag.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'home', component: HomePageComponent },
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +34,8 @@ import {SkillComponent} from './components/skill-tag.component/skill-tag.compone
     MatAutocompleteModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [WindowRefService, UtilsService, HackinderService, ApiService],
   bootstrap: [AppComponent]
