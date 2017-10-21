@@ -1,8 +1,7 @@
 @import '../../variables.less';
 .header {
   &__section {
-    height:100%;
-    padding:10px 15px;
+    height:90px;
   }
   &__table {
    width:100%;
@@ -12,8 +11,15 @@
   &__cell {
     display:table-cell;
     vertical-align:middle;
+    padding-top: 40px;
+
     &_left {
       width:100%;
+      padding-left: 40px;
+      padding-top: 40px;
+    }
+    &_right{
+      padding-left: 20px;
     }
   }
   &__link {
@@ -27,5 +33,5 @@
   }
 }
 .header__section {
- background: url('../../../assets/logo_small.svg') 50% 50% no-repeat;
+ //background: url('../../../assets/logo_small.svg') 50% 50% no-repeat;
 }

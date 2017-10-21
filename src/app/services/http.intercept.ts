@@ -13,7 +13,6 @@ export class AuthInterceptor implements HttpInterceptor {
        this.viewerId =  auth.getCredentials()[userKeyUrl];
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
       const changedReq = req.clone(
         {
           headers: req.headers
