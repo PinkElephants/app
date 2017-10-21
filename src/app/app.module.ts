@@ -14,10 +14,12 @@ import {SkillComponent} from './components/skill-tag.component/skill-tag.compone
 import { RouterModule, Routes } from '@angular/router';
 import {FindPageComponent} from './components/find-page.component/find-page.component';
 import {HeaderComponent} from './components/header.component/header.component';
+import {FavouritePageComponent} from "./components/favourite.component/favourite.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'find', component: FindPageComponent },
+  { path: 'favourite-matches', component: FavouritePageComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     HomePageComponent,
     SkillComponent,
     FindPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    FavouritePageComponent
   ],
   imports: [
     BrowserModule,
