@@ -8,6 +8,10 @@ export class HackinderService {
     this.user.skills.push(skill);
     this.userSkills$.next(this.user.skills.slice());
   }
+  public deleteSkill(index: number){
+    this.user.skills.splice(index, 1);
+    this.userSkills$.next(this.user.skills.slice());
+  }
   private user =  {
     skills: []
   };

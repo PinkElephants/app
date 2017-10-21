@@ -3,9 +3,49 @@
 body {
   height:100%;
   background: @pink;
+  color:@white;
   font-family: Roboto, sans-serif;
 }
 
 .layout {
   height: 100%;
+}
+
+.mat-field-full-width {
+  width:100%;
+}
+
+.mat-focused
+
+  .mat-form-field-placeholder {
+
+    color: rgba(255, 255, 255, .7);
+
+  }
+
+
+.mat-focused .mat-form-field-underline,
+.mat-focused .mat-form-field-ripple{
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.button {
+  background: @violet;
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 36px;
+  color:@white;
+  padding:16px 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 18px;
+  border:0;
+  cursor:pointer;
+  &:focus {
+    outline: 0;
+  }
+}
+
+textarea {
+  resize: none !important;
 }

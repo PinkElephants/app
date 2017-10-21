@@ -49,12 +49,9 @@ export class HomePageComponent implements AfterViewInit{
   }
 
   public skillsValues: any;
-  filterStates(name: string) {
-    return this.states.filter(state =>
-    state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-  }
+
 skillOnDelete(index: number){
-    console.log(index, 'delete');
+    this.hackService.deleteSkill(index);
 }
   ngAfterViewInit() {
     this.renderer.listen(this.skillInput.nativeElement, 'keypress', (evt) => {
