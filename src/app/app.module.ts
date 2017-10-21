@@ -11,13 +11,25 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HackinderService} from './services/hackinder.service';
 import {ApiService} from './services/api.service';
 import {SkillComponent} from './components/skill-tag.component/skill-tag.component';
-import {FavouritePageComponent} from './components/favourite.component/favourite.component';
+import { RouterModule, Routes } from '@angular/router';
+import {FindPageComponent} from './components/find-page.component/find-page.component';
+import {HeaderComponent} from './components/header.component/header.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: HomePageComponent },
+  { path: 'find', component: FindPageComponent },
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SkillComponent,
-    FavouritePageComponent
+    FindPageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +39,8 @@ import {FavouritePageComponent} from './components/favourite.component/favourite
     MatAutocompleteModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowRefService, UtilsService, HackinderService, ApiService],
   bootstrap: [AppComponent]
