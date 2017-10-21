@@ -7,7 +7,10 @@ import {userAuthKeyUrl, userKeyUrl} from './app.constants';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    'style': 'height: 100%; display: block',
+  }
 })
 export class AppComponent {
   public userID: number;
