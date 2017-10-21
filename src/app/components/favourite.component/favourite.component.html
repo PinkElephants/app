@@ -2,10 +2,11 @@
 <div class="container">
   <div class="user-grid">
 
-    <div class="match">
-      <a href="http://www.google.com">
+
+    <div class="match"  *ngFor="let match of matches">
+      <a href="https://vk.com/id{{match.id}}">
         <div class="thumbnail">
-          <img class="img-circle" src="https://pp.userapi.com/c841421/v841421964/425c/WNEF1EqPBco.jpg">
+          <img class="img-circle" src="{{match.photoUrl}}">
           <div class="hover">
             <svg width="80" height="80" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Canvas" transform="translate(-3237 -1593)">
@@ -31,7 +32,7 @@
           </div>
         </div>
       </a>
-      <div class="name">Александр Л</div>
+      <div class="name">{{match.firstName + " " + match.lastName[0]}}</div>
     </div>
 
   </div>
