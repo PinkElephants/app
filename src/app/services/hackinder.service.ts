@@ -5,6 +5,9 @@ import {FavouriteMatch} from "../models/favourite-match";
 import {ApiService} from "./api.service";
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
+import 'rxjs/add/operator/switchMap';
+import "rxjs/add/operator/mergeMap";
+
 import {userAuthKeyUrl, userKeyUrl} from "../app.constants";
 @Injectable()
 export class HackinderService {
@@ -54,8 +57,8 @@ export class HackinderService {
   public getFavouriteMatches(): Observable<FavouriteMatch> {
     return this.api.getFavouriteMatches()
       .map(users => users.map(x => x.user_id))
-      .flatMap(this.api.fetchUsers)
-      .flatMap(items => Observable.from(items))
+      .mergeMap((ids:any) => this.api.fetchUsers(ids))
+      .mergeMap(items => Rx.Observable.of(items))
       .map((item:any) => {
         var match: FavouriteMatch = {
           id: item.id,

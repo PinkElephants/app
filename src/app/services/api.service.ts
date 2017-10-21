@@ -14,6 +14,11 @@ export class ApiService {
       //..
     });
   }
+
+  public fetchUserss(ids: string[]):Observable<any>{
+    return Observable.from([1,2,3]);
+  }
+
   public fetchUsers(ids: number[]){
     return this._jsonp.get(VK_ENDPOINT + 'users.get?user_ids=' + ids.join(',') + '&fields=photo_max_orig&callback=JSONP_CALLBACK')
       .map((response) => response.json());
