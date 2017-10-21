@@ -52,13 +52,12 @@ export class HomePageComponent implements  OnInit {
     });
   }
   submitUser(){
-
     this.hackService.setIdea(this.idea);
     this.hackService.setSummary(this.summary);
-
+    debugger
     this.hackService.updateUser().subscribe((response)=>{
-      this.router.navigateByUrl('/find');
-    })
+      this.router.navigate(['/find']);
+    });
   }
   skillOnDelete(index: number){
     this.hackService.deleteSkill(index);

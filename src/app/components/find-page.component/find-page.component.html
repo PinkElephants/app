@@ -3,7 +3,39 @@
     <header-page></header-page>
   </div>
     <div class="flex-layout__content">
-      <card *ngFor="let user of possibleMatches" [user]="user"></card>
+      <div class="matches-page">
+
+        <div *ngIf="possibleMatches.length">
+          <div class="table">
+            <div class="table__cell table__cell_left">
+              <a class="matches-page__action matches-page__action_like" href="javascript:void()">
+                <img src="../../../assets/unlike.svg"/>
+              </a>
+            </div>
+            <div class="table__cell">
+              <img src="../../../assets/logo_small.svg" class="matches-page__logo"/>
+              <div class="matches-page__previews">
+                <card-preview *ngFor="let user of possibleMatches" [user]="user" class="matches-page__preview">
+                </card-preview>
+              </div>
+            </div>
+            <div class="table__cell table__cell_right">
+              <a class="matches-page__action matches-page__action_like" href="javascript:void()">
+                <img src="../../../assets/like.svg"/>
+              </a>
+            </div>
+
+          </div>
+
+
+        <div class="matches-page-skills">
+          <h3 class="matches-page-skills__heading">
+            Перечень навыков
+          </h3>
+          <skill *ngFor="let skill of possibleMatches[0].skills" [value]="skill" [hasShadow]="true"></skill>
+        </div>
+        </div>
+      </div>
   </div>
 </div>
 

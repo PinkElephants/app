@@ -1,18 +1,20 @@
 <div class="card">
-  <div class="card__photo">
-    {{user.first_name}}
-    <img class="card__image" src="{{user.photo_max_orig}}"/>
+  <img class="card__logo"/>
+
+  <div class="card-preview">
+    <img src="{{user.photo_max_orig}}"class="card-preview__photo"/>
+    <div class="card-preview__info">
+      <h4 class="card-preview__name">Александр, 24 года</h4>
+      <span class="card-preview__specialization">Front-end разработчик</span>
+    </div>
   </div>
   <div class="card__bottom">
-    <div class="card__cell card__cell_left">
-      <h4 class="card__name">Александр, 24 года</h4>
-      <span class="card__specialization">Front-end разработчик</span>
-      <div class="card__skills">
-        <skill *ngFor="let skill of user.skills" [value]="skill" [hasShadow]="true"></skill>
+    <div class="card-skills">
+      <h3 class="card-skills__heading">Перечень навыков разработчика</h3>
+      <div class="card-skills__skills">
+        <skill *ngFor="let skill of user.skills" [hasShadow]="true" [value]="skill"></skill>
       </div>
     </div>
-    <div class="card__cell">
 
-    </div>
   </div>
 </div>
