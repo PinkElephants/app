@@ -23,13 +23,17 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
   }
 })
 export class HomePageComponent implements  OnInit {
-  constructor(private renderer: Renderer2, private hackService: HackinderService,
+  constructor(private renderer: Renderer2,
+              private hackService: HackinderService,
               private router: Router,
               private route: ActivatedRoute,
               private auth: AuthService) {
     this.skillsValues$ = hackService.userSkills$;
   }
   public skillsValues$: any;
+
+  summary: string;
+  idea: string;
 
   public loading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   ngOnInit(){
@@ -48,12 +52,15 @@ export class HomePageComponent implements  OnInit {
     });
   }
   submitUser(){
+
+    this.hackService.setIdea(this.idea);
+    this.hackService.setSummary(this.summary);
+
     this.hackService.updateUser().subscribe((response)=>{
-      debugger;
+      this.router.navigateByUrl('/find');
     })
   }
   skillOnDelete(index: number){
-    debugger
     this.hackService.deleteSkill(index);
   }
 
