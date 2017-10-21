@@ -1,5 +1,6 @@
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Observable} from "rxjs/Observable";
+import * as Rx from  "rxjs"
 import {FavouriteMatch} from "../models/favourite-match";
 import {ApiService} from "./api.service";
 import {Injectable} from "@angular/core";
@@ -49,7 +50,18 @@ export class HackinderService {
   }
   public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
   public getFavouriteMatches(): Observable<FavouriteMatch>{
-    //favouriteMatches$.next(new FavouriteMatch())
-    return null;
+
+    var matches:FavouriteMatch[] = [
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
+    ];
+
+    return Rx.Observable.from(matches)
   }
 }
