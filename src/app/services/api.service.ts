@@ -29,4 +29,8 @@ public updateUser(user){
   public getFavouriteMatches() : Observable<any>{
     return this.http.get(HICKTINDER_ENDPOINT + 'matches');
   }
+
+  public doMatch(user_id:string, isLiked:boolean) : Observable<any>{
+    return this.http.post(HICKTINDER_ENDPOINT + 'matches', {user_id : user_id, isLike: isLiked});
+  }
 }
