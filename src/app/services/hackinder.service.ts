@@ -51,18 +51,19 @@ export class HackinderService {
       });
   }
 
-  public getFavouriteMatches(): Observable<FavouriteMatch>{
-    var matches:FavouriteMatch[] = [
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-      {id : 1, firstName: "First", lastName:"Last", photoUrl : "https://pp.userapi.com/c836333/v836333001/31189/8To0r3d-6iQ.jpg"},
-    ];
-
-    return Rx.Observable.from(matches)
+  public getFavouriteMatches(): Observable<FavouriteMatch> {
+    return this.api.getFavouriteMatches()
+      .map(users => users.map(x => x.user_id))
+      .flatMap(this.api.fetchUsers)
+      .flatMap(items => Observable.from(items))
+      .map((item:any) => {
+        var match: FavouriteMatch = {
+          id: item.id,
+          firstName: item.first_name,
+          lastName: item.last_name,
+          photoUrl: item.photo_max_orig
+        };
+        return match;
+      });
   }
 }
