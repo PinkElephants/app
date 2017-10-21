@@ -15,6 +15,10 @@ export class FindPageComponent{
   constructor(private hackinderService: HackinderService, private _ref: ChangeDetectorRef){
   }
   public possibleMatches: any[] = [];
+  public like(){
+    this.hackinderService.doLike(this.possibleMatches[0].user_id).subscribe()
+    this.possibleMatches.pop();
+  }
   ngOnInit(){
     this.hackinderService.getPossibleMatches();
     this.hackinderService.possibleMatches$.subscribe((matches)=>{

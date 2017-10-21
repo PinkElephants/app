@@ -27,6 +27,7 @@ export class ApiService {
   }
 
   public doMatch(user_id:string, isLiked:boolean) : Observable<any>{
+    debugger;
     return this.http.post(HICKTINDER_ENDPOINT + 'matches', {user_id : user_id, isLike: isLiked});
   }
 }
