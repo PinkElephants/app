@@ -24,8 +24,15 @@ export class HackinderService {
     this.user.skills.splice(index, 1);
     this.userSkills$.next(this.user.skills.slice());
   }
+
+  public setIdea(idea:String){
+
+  }
+
   private user =  {
-    skills: []
+    skills: [],
+    summary: "",
+    idea : ""
   };
   public updateUser(){
     debugger;
