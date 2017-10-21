@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Jsonp} from "@angular/http";
+import {Observable} from "rxjs/Observable";
 const HICKTINDER_ENDPOINT = 'http://hackinder.com/api/';
 const VK_ENDPOINT = 'https://api.vk.com/method/';
 @Injectable()
@@ -19,5 +20,9 @@ export class ApiService {
   }
   public getPossibleMatches(){
     return this.http.get(HICKTINDER_ENDPOINT + 'newmatches');
+  }
+
+  public getFavouriteMatches() : Observable<any>{
+    return this.http.get(HICKTINDER_ENDPOINT + 'matches');
   }
 }
