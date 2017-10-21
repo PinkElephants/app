@@ -70,4 +70,12 @@ export class HackinderService {
         });
       });
   }
+
+  public doLike(user_id:string){
+    return this.api.doMatch(user_id, true);
+  }
+
+  public doDislike(user_id:string){
+    return this.api.doMatch(user_id, false);
+  }
 }
