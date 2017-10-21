@@ -1,0 +1,18 @@
+<div class="container">
+  <img class="container__logo" src="../../../assets/logo.svg"/>
+<h2 class="container__title">
+  Найди того самого тимейта
+</h2>
+  <form class="example-form">
+  <mat-form-field>
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Укажите ваши навыки" [formControl]="skillsCtrl" #skills>
+  </mat-form-field>
+  </form>
+
+  <div *ngFor="let skill of skillsValues | async; let _index = index">
+   <skill [value]="skill" [isRemovable]="true"  [index]="_index" (onDelete)="skillOnDelete($event)"></skill>
+  </div>
+</div>
