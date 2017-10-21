@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import {HackinderService} from '../../services/hackinder.service';
 
 @Component({
-  selector: 'header',
+  selector: 'header-page',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
