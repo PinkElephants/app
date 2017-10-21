@@ -11,11 +11,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HackinderService} from './services/hackinder.service';
 import {ApiService} from './services/api.service';
 import {SkillComponent} from './components/skill-tag.component/skill-tag.component';
+import {FavouritePageComponent} from './components/favourite.component/favourite.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    SkillComponent
+    SkillComponent,
+    FavouritePageComponent
   ],
   imports: [
     BrowserModule,
