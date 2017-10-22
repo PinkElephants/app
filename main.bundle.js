@@ -77,8 +77,6 @@ var AppComponent = (function () {
         var q2ajx = utils.q2ajx(windowRef.nativeWindow.location.search.replace(/^\?/, ''));
         this.userID = q2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["c" /* userKeyUrl */]];
         this.authKey = q2ajx[__WEBPACK_IMPORTED_MODULE_3__app_constants__["b" /* userAuthKeyUrl */]];
-        this.authKey = '3698302d5f1b2b85ad948ecbbdf18db0';
-        this.userID = '667976';
         auth.storeCredentials(this.authKey, this.userID);
     }
     AppComponent.prototype.ngOnInit = function () {
