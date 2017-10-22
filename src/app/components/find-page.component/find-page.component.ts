@@ -12,7 +12,7 @@ import {style, trigger, query, stagger, state, animate, transition} from "@angul
   }
 })
 export class FindPageComponent implements OnInit, OnDestroy{
-  constructor(private hackinderService: HackinderService, private _ref: ChangeDetectorRef){
+  constructor(public hackinderService: HackinderService, private _ref: ChangeDetectorRef){
   }
 
   public possibleMatches: any[] = [];

@@ -7,44 +7,52 @@ import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/switchMap';
 import "rxjs/add/operator/mergeMap";
+import {User} from "../app.interfaces";
 
 @Injectable()
 export class HackinderService {
   constructor(private api: ApiService){}
   public userSkills$: BehaviorSubject<any[]> = new BehaviorSubject(null);
-  public user$: Subject<{}> =  new Subject();
+  public user$: BehaviorSubject<User> =  new BehaviorSubject(<User>{});
+  public filtersOpened$: BehaviorSubject<boolean> =  new BehaviorSubject(false);
   public possibleMatches$: BehaviorSubject<any[]> =  new BehaviorSubject<any[]>([]);
   public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
   public loading$: BehaviorSubject<boolean> =  new BehaviorSubject(true);
   public addSkill(skill: string) {
-    this.user.skills.push(skill);
-    this.userSkills$.next(this.user.skills.slice());
+    const skills  = this.user$.getValue().skills.slice();
+    skills.push(skill);
+    this.user$.next(Object.assign({}, this.user$.getValue(), {skills: skills}));
   }
   public deleteSkill(index: number){
-    this.user.skills.splice(index, 1);
-    this.userSkills$.next(this.user.skills.slice());
+    const skills = this.user$.getValue().skills;
+    skills.splice(1, index);
+    this.user$.next(Object.assign({}, this.user$.getValue(), {skills: skills.slice()}));
   }
 
   public setIdea(idea:string){
-    this.user.idea = idea;
+    this.user$.next(Object.assign({}, this.user$.getValue(), {idea: idea}));
   }
-
   public setSummary(summary:string){
-    this.user.summary = summary;
+    this.user$.next(Object.assign({}, this.user$.getValue(), {summary: summary}));
+  }
+  public openFilters(){
+    this.filtersOpened$.next(true);
   }
 
-  private user =  {
-    skills: [],
-    summary: "",
-    idea : ""
-  };
+  public closeFilters(){
+    this.filtersOpened$.next(false);
+  }
+
+
+
   public updateUser(){
-   return this.api.updateUser(this.user);
+    return this.api.updateUser(this.user$.getValue());
   }
 
   public getUser(id){
-    return this.api.getUser(id).mergeMap(user => this.api.fetchUsers([id]), (hackUser, vkUser) => {
-      return hackUser;
+    return this.api.getUser(id).mergeMap(user => this.api.fetchUsers([id]), (hackUser: User, vkUser) => {
+     
+      this.user$.next(Object.assign({}, hackUser));
     });
   }
   public setLoading(bool: boolean){

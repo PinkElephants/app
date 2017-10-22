@@ -39,7 +39,7 @@
           <button class="button" (click)="openDetailed()">Посмотреть дополнительную информацию</button>
         </div>
       </div>
-
+<filter-page class="filters-page" (close)="hackinderService.closeFilters()" [ngClass]="{'filters-page_open': (hackinderService.filtersOpened$ | async)}"></filter-page>
       <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" (close)="hideDetailed()" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
   </div>
 </div>

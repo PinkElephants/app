@@ -8,12 +8,12 @@
     </div>
 
     <div  *ngIf="!(loading$ | async)">
-      <skills (onDelete)="skillOnDelete($event)" [skills]="skillsValues$|async"></skills>
+      <skills (onDelete)="skillOnDelete($event)" [skills]="(hackService.user$ | async).skills || []"></skills>
       <mat-form-field class="mat-field-full-width">
-        <textarea [(ngModel)] = "summary" matInput matTextareaAutosize placeholder="Специализация (front-end, back-end, дизайн ...)"></textarea>
+        <textarea [(ngModel)] = "summary" #summaryCtrl matInput matTextareaAutosize placeholder="Специализация (front-end, back-end, дизайн ...)"></textarea>
       </mat-form-field>
       <mat-form-field class="mat-field-full-width" >
-        <textarea [(ngModel)] = "idea" matInput  matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
+        <textarea [(ngModel)] = "idea" matInput #ideaCtrl matTextareaAutosize placeholder="Расскажите о вашей идее"></textarea>
       </mat-form-field>
       <button class="button" (click)="submitUser()" class="container__button button">Перейти к поиску тимейтов</button>
     </div>

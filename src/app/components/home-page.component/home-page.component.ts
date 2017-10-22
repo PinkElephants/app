@@ -24,13 +24,12 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 })
 export class HomePageComponent implements  OnInit {
   constructor(private renderer: Renderer2,
-              private hackService: HackinderService,
+              public hackService: HackinderService,
               private router: Router,
               private route: ActivatedRoute,
               private auth: AuthService) {
-    this.skillsValues$ = hackService.userSkills$;
+
   }
-  public skillsValues$: any;
 
   summary: string;
   idea: string;
