@@ -4,7 +4,7 @@
 
 
     <div class="match"  *ngFor="let match of matches">
-      <a href="/developer-info?id={{match.id}}">
+      <a ><!--href="/developer-info?id={{match.id}}"-->
         <div class="thumbnail">
           <img class="img-circle" src="{{match.photoUrl}}">
           <div class="hover">
@@ -32,7 +32,7 @@
           </div>
         </div>
       </a>
+      <div class="name">{{match.firstName + " " + match.lastName[0]}}</div>
     </div>
-
   </div>
 </div>

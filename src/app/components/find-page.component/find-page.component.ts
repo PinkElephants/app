@@ -17,6 +17,8 @@ export class FindPageComponent implements OnInit, OnDestroy{
 
   public possibleMatches: any[] = [];
   public like(){
+    console.log(this.possibleMatches[0].user_id);
+    console.log(this.possibleMatches[0]);
     this.hackinderService.doLike(this.possibleMatches[0].user_id).subscribe();
     this.possibleMatches.shift();
   }

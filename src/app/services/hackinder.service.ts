@@ -87,6 +87,7 @@ export class HackinderService {
       .mergeMap((ids: any) => this.api.fetchUsers(ids))
       .map(items => items.response)
       .map((items: any) => {
+      debugger;
         return items.map(item => {
           const match: FavouriteMatch = {
             id: item.uid,
