@@ -75,7 +75,11 @@ export class HackinderService {
 
   public getMatch(userId:string){
     return this.api.getFavouriteMatches()
-      .map(users => users.filter(x => x.user_id == userId))
+      .map(users => {
+        debugger;
+        return users.filter(x => x.user_id == userId)
+      })
+      .first()
   }
 
   public getFavouriteMatches(): Observable<FavouriteMatch[]> {
