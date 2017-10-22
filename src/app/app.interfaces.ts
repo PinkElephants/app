@@ -7,4 +7,8 @@ export interface User {
   skills: string[];
   user_id: number;
   summary: string;
+  settings: SearchSettings;
+}
+export interface SearchSettings {
+  desiredSkills: string[];
 }

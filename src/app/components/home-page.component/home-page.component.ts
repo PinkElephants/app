@@ -38,7 +38,7 @@ export class HomePageComponent implements  OnInit {
           if(!params['edit']){
             setTimeout(()=>{
               this.router.navigate(['/find']);},
-              3000);
+              1000);
           } else {
             this.loading$.next(false);
           }
@@ -52,10 +52,5 @@ export class HomePageComponent implements  OnInit {
       this.router.navigate(['/find']);
     });
   }
-  skillOnDelete(index: number){
-    this.hackService.deleteSkill(index);
-  }
-
-
 }
 

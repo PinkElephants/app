@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Jsonp} from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import {SearchSettings} from "../app.interfaces";
 const HICKTINDER_ENDPOINT = 'https://hackinder.com/api/';
 //const HICKTINDER_ENDPOINT = 'http://localhost/api/';
 const VK_ENDPOINT = 'https://api.vk.com/method/';
@@ -14,6 +15,9 @@ export class ApiService {
 
   public updateUser(user){
     return this.http.post(HICKTINDER_ENDPOINT + 'user',  user);
+  }
+  public submitSearchSettings(settings: SearchSettings){
+    return this.http.post(HICKTINDER_ENDPOINT + 'user/settings', settings);
   }
   public fetchUsers(ids: number[]){
     return this._jsonp.get(VK_ENDPOINT + 'users.get?user_ids=' + ids.join(',') + '&fields=photo_max_orig&callback=JSONP_CALLBACK')

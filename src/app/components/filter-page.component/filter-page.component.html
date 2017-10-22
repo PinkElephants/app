@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container unicorn-dark-theme2">
   <h3 class="page-container__heading">Настроить фильтр</h3>
   <span class="page-container__close" (click)="close.emit()">
     <svg width="40" height="40" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -14,5 +14,11 @@
       </defs>
     </svg>
   </span>
-  <skills (onDelete)="skillOnDelete($event)" [skills]="skillsValues$|async"></skills>
+  <skills [hasShadow]="true"
+          (onAdd)="addSkill($event)"
+          (onDelete)="deleteSkill($event)"
+          [skills]="(hackingService.user$|async)?.settings?.desiredSkills"></skills>
+
+  <button class="button" (click)="submitSearchSettings()">Применить фильтр</button>
+  <button class="button" (click)="resetSearchSettings()">Очистить</button>
 </div>

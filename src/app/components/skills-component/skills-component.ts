@@ -13,7 +13,9 @@ import {HackinderService} from "../../services/hackinder.service";
 })
 export class SkillsComponent implements AfterViewInit{
   @Input() public  skills: string[];
+  @Input() public  hasShadow: boolean = false;
   @Output() public onDelete  = new EventEmitter();
+  @Output() public onAdd  = new EventEmitter();
   constructor(private renderer: Renderer2, private hackService: HackinderService){
     this.skillsCtrl = new FormControl();
   }
@@ -22,7 +24,8 @@ export class SkillsComponent implements AfterViewInit{
   ngAfterViewInit() {
     this.renderer.listen(this.skillInput.nativeElement, 'keypress', (evt) => {
       if (evt.charCode === 13) {
-        this.hackService.addSkill(this.skillsCtrl.value);
+        this.onAdd.emit(this.skillsCtrl.value);
+
         this.skillsCtrl.setValue('');
       }
     });

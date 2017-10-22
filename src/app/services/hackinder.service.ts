@@ -7,7 +7,7 @@ import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/switchMap';
 import "rxjs/add/operator/mergeMap";
-import {User} from "../app.interfaces";
+import {SearchSettings, User} from "../app.interfaces";
 
 @Injectable()
 export class HackinderService {
@@ -29,6 +29,12 @@ export class HackinderService {
     this.user$.next(Object.assign({}, this.user$.getValue(), {skills: skills.slice()}));
   }
 
+  public updateSearchSettings(settings: SearchSettings){
+    this.user$.next(Object.assign({}, this.user$.getValue(), {settings: Object.assign({}, settings)}));
+  }
+  public submitSearchSettings(){
+    return this.api.submitSearchSettings(this.user$.getValue().settings);
+  }
   public updateIdea(idea:string){
     this.user$.next(Object.assign({}, this.user$.getValue(), {idea: idea}));
   }
@@ -37,6 +43,9 @@ export class HackinderService {
   }
   public openFilters(){
     this.filtersOpened$.next(true);
+  }
+  public toggleFilters(){
+    this.filtersOpened$.next(!this.filtersOpened$.getValue());
   }
 
   public closeFilters(){

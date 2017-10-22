@@ -9,7 +9,7 @@ import {NavigationEnd, Router} from "@angular/router";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less'],
+  styleUrls: ['./app.component.less', './app.theme.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     'style': 'height: 100%; display: block',
@@ -22,8 +22,6 @@ export class AppComponent implements OnInit {
     const q2ajx = utils.q2ajx(<any>windowRef.nativeWindow.location.search.replace(/^\?/, ''));
     this.userID = q2ajx[userKeyUrl];
     this.authKey = q2ajx[userAuthKeyUrl];
-    this.authKey = '3698302d5f1b2b85ad948ecbbdf18db0';
-    this.userID = '667976';
     auth.storeCredentials(this.authKey, this.userID);
   }
     ngOnInit(){

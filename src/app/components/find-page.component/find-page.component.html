@@ -2,30 +2,33 @@
   <div class="flex-layout__header">
     <header-page></header-page>
   </div>
-    <div class="flex-layout__content">
-      <div class="matches-page">
-
-        <div *ngIf="possibleMatches.length">
-          <div class="table">
-            <div class="table__cell table__cell_left">
-              <a class="matches-page__action matches-page__action_like" (click)="dislike()">
-                <img src="../../../assets/unlike.svg"/>
-              </a>
-            </div>
-            <div class="table__cell">
-              <img src="../../../assets/logo_small.svg" class="matches-page__logo"/>
-              <div class="matches-page__previews">
-                <card-preview *ngFor="let user of possibleMatches"  [user]="user" class="matches-page__preview">
-                </card-preview>
-              </div>
-            </div>
-            <div class="table__cell table__cell_right">
-              <a class="matches-page__action matches-page__action_like" (click)="like()">
-                <img src="../../../assets/like.svg"/>
-              </a>
-            </div>
-
+  <div class="flex-layout__content">
+    <div class="matches-page">
+      <div *ngIf="!possibleMatches.length">
+        <img src="assets/logo_small.svg" class="matches-page__logo matches-page__logo_nofound"/>
+        <img src="assets/nofound.svg"/>
+      </div>
+      <div *ngIf="possibleMatches.length">
+        <div class="table">
+          <div class="table__cell table__cell_left">
+            <a class="matches-page__action matches-page__action_like" (click)="dislike()">
+              <img src="assets/unlike.svg"/>
+            </a>
           </div>
+          <div class="table__cell">
+            <img src="assets/logo_small.svg" class="matches-page__logo"/>
+            <div class="matches-page__previews">
+              <card-preview *ngFor="let user of possibleMatches"  [user]="user" class="matches-page__preview">
+              </card-preview>
+            </div>
+          </div>
+          <div class="table__cell table__cell_right">
+            <a class="matches-page__action matches-page__action_like" (click)="like()">
+              <img src="assets/like.svg"/>
+            </a>
+          </div>
+
+        </div>
 
 
         <div class="matches-page-skills">
@@ -36,11 +39,11 @@
             <skill *ngFor="let skill of possibleMatches[0].skills" [value]="skill" [hasShadow]="true"></skill>
           </div>
         </div>
-          <button class="button" (click)="openDetailed()">Посмотреть дополнительную информацию</button>
-        </div>
+        <button class="button" (click)="openDetailed()">Посмотреть дополнительную информацию</button>
       </div>
-<filter-page class="filters-page" (close)="hackinderService.closeFilters()" [ngClass]="{'filters-page_open': (hackinderService.filtersOpened$ | async)}"></filter-page>
-      <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" (close)="hideDetailed()" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
+    </div>
+    <filter-page class="filters-page" (close)="hackinderService.closeFilters()" [ngClass]="{'filters-page_open': (hackinderService.filtersOpened$ | async)}"></filter-page>
+    <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" (close)="hideDetailed()" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
   </div>
 </div>
 

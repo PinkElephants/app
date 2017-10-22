@@ -11,8 +11,8 @@ import {Router} from "@angular/router";
 export class MatchedPageComponent implements AfterViewInit {
   matches: FavouriteMatch[] = [];
 
-  constructor(private hackService: HackinderService,
-              public router:Router) {
+  constructor(public hackService: HackinderService,
+              public router: Router) {
   }
 
   public redirect(): void{
