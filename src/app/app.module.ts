@@ -21,11 +21,13 @@ import {AuthInterceptor} from "./services/http.intercept";
 import {AuthService} from "./services/auth.service";
 import {SkillsComponent} from "./components/skills-component/skills-component";
 import {CardPreviewComponent} from "./components/card-preview.component/card-preview.component";
+import {DeveloperInfoPageComponent} from "./components/developer-info.component/developer-info.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'find', component: FindPageComponent },
   { path: 'matched', component: MatchedPageComponent },
+  { path: 'developer-info', component: DeveloperInfoPageComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     MatchedPageComponent,
     CardComponent,
     SkillsComponent,
-    CardPreviewComponent
+    CardPreviewComponent,
+    DeveloperInfoPageComponent
   ],
   imports: [
     BrowserModule,

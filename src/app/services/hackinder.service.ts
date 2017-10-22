@@ -73,6 +73,11 @@ export class HackinderService {
       });
   }
 
+  public getMatch(userId:string){
+    return this.api.getFavouriteMatches()
+      .map(users => users.filter(x => x.user_id == userId))
+  }
+
   public getFavouriteMatches(): Observable<FavouriteMatch[]> {
     return this.api.getFavouriteMatches()
       .map(users => users.map(x => x.user_id))
