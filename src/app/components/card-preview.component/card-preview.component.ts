@@ -11,4 +11,3 @@ import {CARD_VIEW} from '../../app.constants';
 export class CardPreviewComponent {
   @Input() user: User;
 }
-
