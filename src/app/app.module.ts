@@ -24,7 +24,7 @@ import {CardPreviewComponent} from "./components/card-preview.component/card-pre
 import {DeveloperInfoPageComponent} from "./components/developer-info.component/developer-info.component";
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: 'home/:edit', component: HomePageComponent },
   { path: 'find', component: FindPageComponent },
   { path: 'matched', component: MatchedPageComponent },
   { path: 'developer-info', component: DeveloperInfoPageComponent },

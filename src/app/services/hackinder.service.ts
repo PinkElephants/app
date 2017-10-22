@@ -39,7 +39,6 @@ export class HackinderService {
     idea : ""
   };
   public updateUser(){
-    debugger;
    return this.api.updateUser(this.user);
   }
 
