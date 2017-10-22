@@ -554,7 +554,7 @@ var FilterPageComponent = (function () {
     };
     FilterPageComponent.prototype.addSkill = function (skill) {
         var settings = Object.assign({}, this.hackingService.user$.getValue().settings);
-        var _cache = settings.desiredSkills.slice();
+        var _cache = settings.desiredSkills ? settings.desiredSkills.slice() : [];
         _cache.push(skill);
         settings.desiredSkills = _cache;
         this.hackingService.updateSearchSettings(settings);
@@ -835,7 +835,9 @@ var HomePageComponent = (function () {
     HomePageComponent.prototype.submitUser = function () {
         var _this = this;
         this.hackService.updateUser().subscribe(function (response) {
-            _this.router.navigate(['/find']);
+            _this.hackService.getUser(_this.auth.getCredentials()[__WEBPACK_IMPORTED_MODULE_5__app_constants__["c" /* userKeyUrl */]]).subscribe(function () {
+                _this.router.navigate(['/find']);
+            });
         });
     };
     return HomePageComponent;
@@ -917,7 +919,6 @@ var MatchedPageComponent = (function () {
         this.hackService
             .getFavouriteMatches()
             .subscribe(function (fetched) {
-            debugger;
             _this.matches = fetched;
         });
     };
