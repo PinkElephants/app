@@ -22,7 +22,6 @@ export class MatchedPageComponent implements AfterViewInit {
     this.hackService
       .getFavouriteMatches()
       .subscribe(fetched => {
-        debugger;
         this.matches = fetched;
       });
 

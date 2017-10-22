@@ -22,7 +22,7 @@ private _initialSettings: SearchSettings = Object.assign({}, this.hackingService
   }
   public addSkill(skill: string){
     const settings = Object.assign({}, this.hackingService.user$.getValue().settings);
-    const _cache = settings.desiredSkills.slice();
+    const _cache = settings.desiredSkills ? settings.desiredSkills.slice() : [];
     _cache.push(skill);
     settings.desiredSkills = _cache;
     this.hackingService.updateSearchSettings(settings);
