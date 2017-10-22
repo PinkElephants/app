@@ -29,7 +29,8 @@ const appRoutes: Routes = [
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  }
+  },
+  { path: '**', component: HomePageComponent }
 ];
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     MatchedPageComponent,
     CardComponent,
     SkillsComponent,
-    CardPreviewComponent
+    CardPreviewComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
