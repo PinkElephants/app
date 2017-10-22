@@ -4,7 +4,7 @@
       <img class="container__logo" src="../../../assets/logo.svg"/>
     </div>
     <div *ngIf="loading$ | async">
-      loading...
+     <img src="../../../assets/loader.gif"/>
     </div>
 
     <div  *ngIf="!(loading$ | async)">
