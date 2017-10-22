@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HackinderService} from "../../services/hackinder.service";
 import {FavouriteMatch} from "../../models/favourite-match";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'matched-page',
@@ -10,9 +11,13 @@ import {FavouriteMatch} from "../../models/favourite-match";
 export class MatchedPageComponent implements AfterViewInit {
   matches: FavouriteMatch[] = [];
 
-  constructor(private hackService: HackinderService) {
+  constructor(private hackService: HackinderService,
+              public router:Router) {
   }
 
+  public redirect(): void{
+    this.router.navigate(['find']);
+  }
   ngAfterViewInit(): void {
     this.hackService
       .getFavouriteMatches()
