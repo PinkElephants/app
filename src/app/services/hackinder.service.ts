@@ -19,6 +19,9 @@ export class HackinderService {
   public favouriteMatches$: BehaviorSubject<FavouriteMatch[]> = new BehaviorSubject(null);
   public loading$: BehaviorSubject<boolean> =  new BehaviorSubject(true);
   public addSkill(skill: string) {
+    if(!this.user$.getValue().skills){
+      this.user$.next(Object.assign({}, this.user$.getValue(), {skills: []}));
+    }
     const skills  = this.user$.getValue().skills.slice();
     skills.push(skill);
     this.user$.next(Object.assign({}, this.user$.getValue(), {skills: skills}));
@@ -103,7 +106,6 @@ export class HackinderService {
       .mergeMap((ids: any) => this.api.fetchUsers(ids))
       .map(items => items.response)
       .map((items: any) => {
-      debugger;
         return items.map(item => {
           const match: FavouriteMatch = {
             id: item.uid,
