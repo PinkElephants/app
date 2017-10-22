@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Jsonp} from "@angular/http";
 import {Observable} from "rxjs/Observable";
-const HICKTINDER_ENDPOINT = 'http://hackinder.com/api/';
+const HICKTINDER_ENDPOINT = 'https://hackinder.com/api/';
+//const HICKTINDER_ENDPOINT = 'http://localhost/api/';
 const VK_ENDPOINT = 'https://api.vk.com/method/';
 @Injectable()
 export class ApiService {
@@ -27,7 +28,6 @@ export class ApiService {
   }
 
   public doMatch(user_id:string, isLiked:boolean) : Observable<any>{
-    debugger;
-    return this.http.post(HICKTINDER_ENDPOINT + 'matches', {user_id : user_id, isLike: isLiked});
+    return this.http.post(HICKTINDER_ENDPOINT + 'match', {user_id : user_id, isLike: isLiked});
   }
 }

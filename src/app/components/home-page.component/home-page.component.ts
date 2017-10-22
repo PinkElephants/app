@@ -38,7 +38,6 @@ export class HomePageComponent implements  OnInit {
   public loading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   ngOnInit(){
     this.route.params.subscribe((params)=>{
-      debugger;
       if(!params['edit']){
         this.hackService.getUser(this.auth.getCredentials()[userKeyUrl]).subscribe((data)=>{
           setTimeout(()=>{
@@ -55,7 +54,6 @@ export class HomePageComponent implements  OnInit {
   submitUser(){
     this.hackService.setIdea(this.idea);
     this.hackService.setSummary(this.summary);
-    debugger
     this.hackService.updateUser().subscribe((response)=>{
       this.router.navigate(['/find']);
     });
