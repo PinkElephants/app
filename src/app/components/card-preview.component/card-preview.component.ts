@@ -6,7 +6,7 @@ import {CARD_VIEW} from '../../app.constants';
   selector: 'card-preview',
   templateUrl: './card-preview.component.html',
   styleUrls: ['./card-preview.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardPreviewComponent {
   @Input() user: User;

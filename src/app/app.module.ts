@@ -21,7 +21,8 @@ import {AuthInterceptor} from "./services/http.intercept";
 import {AuthService} from "./services/auth.service";
 import {SkillsComponent} from "./components/skills-component/skills-component";
 import {CardPreviewComponent} from "./components/card-preview.component/card-preview.component";
-import {DetailedInfo} from "./components/detailed-info.component/detailed-info.component";
+import {DetailedInfoComponent} from "./components/detailed-info.component/detailed-info.component";
+import {FilterPageComponent} from "./components/filter-page.component/filter-page.component";
 
 const appRoutes: Routes = [
   { path: 'home/:edit', component: HomePageComponent },
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     CardComponent,
     SkillsComponent,
     CardPreviewComponent,
-    DetailedInfo
+    DetailedInfoComponent,
+    FilterPageComponent
   ],
   imports: [
     BrowserModule,

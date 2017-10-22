@@ -1,23 +1,13 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-
-
+import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
   selector: 'detailed-info',
   templateUrl: './detailed-info.component.html',
-  styleUrls: ['./detailed-info.component.less']
+  styleUrls: ['./detailed-info.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DetailedInfo implements OnInit {
+export class DetailedInfoComponent{
   @Input() skills: string[] = [];
   @Input() idea: string;
   @Output() close = new EventEmitter();
-  ngOnInit(): void {
-    // this.route.queryParams
-    //   .map(params => params["id"])
-    //   .mergeMap(id => this.hackService.getMatch(id))
-    //   .subscribe(user => {
-    //     this.skills = user.skills;
-    //     this.idea = user.idea;
-    //   })
-  }
 }

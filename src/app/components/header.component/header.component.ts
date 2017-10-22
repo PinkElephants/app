@@ -13,5 +13,8 @@ import {HackinderService} from '../../services/hackinder.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
+  constructor(public hackingService: HackinderService){
+
+  }
 }
 
