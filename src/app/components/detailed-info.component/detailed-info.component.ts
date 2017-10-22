@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from "@angular/core";
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 
 
@@ -10,6 +10,7 @@ import {AfterViewInit, Component, Input, OnInit} from "@angular/core";
 export class DetailedInfo implements OnInit {
   @Input() skills: string[] = [];
   @Input() idea: string;
+  @Output() close = new EventEmitter();
   ngOnInit(): void {
     // this.route.queryParams
     //   .map(params => params["id"])

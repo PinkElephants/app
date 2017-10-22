@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
+      <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" (close)="hideDetailed()" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
   </div>
 </div>
 

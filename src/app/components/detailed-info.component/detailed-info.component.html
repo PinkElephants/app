@@ -1,6 +1,6 @@
 <div class="page-container">
   <h3 class="page-container__heading">Информация о разработчике</h3>
-  <a href="#" class="page-container__close">
+  <span class="page-container__close" (click)="close.emit()">
     <svg width="40" height="40" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g id="Canvas" transform="translate(-2827 -1566)">
         <g id="multiply (1)">
@@ -13,7 +13,7 @@
         <path id="path0_fill" d="M 40 1.81795L 38.1821 0L 20 18.1821L 1.81795 0L 0 1.81795L 18.1821 20L 0 38.1821L 1.81795 40L 20 21.8179L 38.1821 40L 40 38.1821L 21.8179 20L 40 1.81795Z"/>
       </defs>
     </svg>
-  </a>
+  </span>
   <div class="page-container__section">
     <skill *ngFor="let skill of skills" [hasShadow]="true" [value]="skill"></skill>
   </div>

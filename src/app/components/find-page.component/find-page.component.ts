@@ -37,6 +37,9 @@ export class FindPageComponent implements OnInit, OnDestroy{
   openDetailed(){
     this.showDetailed =  true;
      }
+     hideDetailed(){
+       this.showDetailed =  false;
+     }
   ngOnDestroy(){
     this._subscriptions.map((item)=> item.unsubscribe())
   }
