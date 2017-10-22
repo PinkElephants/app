@@ -49,7 +49,9 @@ export class HomePageComponent implements  OnInit {
   }
   submitUser(){
     this.hackService.updateUser().subscribe((response)=>{
-      this.router.navigate(['/find']);
+     this.hackService.getUser(this.auth.getCredentials()[userKeyUrl]).subscribe(()=>{
+       this.router.navigate(['/find']);
+     });
     });
   }
 }
