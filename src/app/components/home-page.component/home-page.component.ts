@@ -38,17 +38,17 @@ export class HomePageComponent implements  OnInit {
   public loading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   ngOnInit(){
     this.route.params.subscribe((params)=>{
-      if(!params['edit']){
         this.hackService.getUser(this.auth.getCredentials()[userKeyUrl]).subscribe((data)=>{
-          setTimeout(()=>{
-            this.router.navigate(['/find']);}, 3000)
+          if(!params['edit']){
+            setTimeout(()=>{
+              this.router.navigate(['/find']);},
+              3000);
+          } else {
+            this.loading$.next(false);
+          }
         }, (error)=>{
-
           this.loading$.next(false);
         });
-      } else {
-        this.loading$.next(false);
-      }
     });
   }
   submitUser(){

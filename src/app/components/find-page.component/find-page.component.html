@@ -8,14 +8,14 @@
         <div *ngIf="possibleMatches.length">
           <div class="table">
             <div class="table__cell table__cell_left">
-              <a class="matches-page__action matches-page__action_like">
+              <a class="matches-page__action matches-page__action_like" (click)="dislike()">
                 <img src="../../../assets/unlike.svg"/>
               </a>
             </div>
             <div class="table__cell">
               <img src="../../../assets/logo_small.svg" class="matches-page__logo"/>
               <div class="matches-page__previews">
-                <card-preview *ngFor="let user of possibleMatches" [user]="user" class="matches-page__preview">
+                <card-preview *ngFor="let user of possibleMatches; let _index = index;" [index]="_index" [user]="user" class="matches-page__preview">
                 </card-preview>
               </div>
             </div>
@@ -36,9 +36,11 @@
             <skill *ngFor="let skill of possibleMatches[0].skills" [value]="skill" [hasShadow]="true"></skill>
           </div>
         </div>
-          <button class="button">Посмотреть дополнительную информацию</button>
+          <button class="button" (click)="openDetailed()">Посмотреть дополнительную информацию</button>
         </div>
       </div>
+
+      <detailed-info *ngIf="possibleMatches && possibleMatches.length" [ngClass]="{'detailed-info_open': showDetailed}" class="detailed-info" [skills]="possibleMatches[0].skills" [idea]="possibleMatches[0].idea"></detailed-info>
   </div>
 </div>
 

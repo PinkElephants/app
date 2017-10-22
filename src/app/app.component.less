@@ -68,3 +68,43 @@ img {
 textarea.mat-input-element {
   overflow: hidden !important;
 }
+
+.page-container {
+  position: relative;
+  background: @white;
+  padding: 50px 40px;
+  height:100%;
+  color:@black;
+  box-shadow: -4px 0px 24px rgba(0, 0, 0, 0.2);
+  &__section {
+    margin-bottom: 40px;
+    &-heading {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 18px;
+      margin:0;
+      margin-bottom: 20px;
+    }
+  }
+  &__heading {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 30px;
+    padding-right:60px;
+    color: #000000;
+    margin:0;
+    margin-bottom:40px;
+  }
+  &__close {
+    width:40px;
+    height:40px;
+    position:absolute;
+    right:40px;
+    top: 50px;
+  }
+
+}
