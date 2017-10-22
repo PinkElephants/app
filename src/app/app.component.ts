@@ -22,7 +22,7 @@ export class AppComponent {
     this.userID = q2ajx[userKeyUrl];
     this.authKey = q2ajx[userAuthKeyUrl];
     this.authKey = '3698302d5f1b2b85ad948ecbbdf18db0';
-    this.userID = '17864153';
+    this.userID = '667976';
     auth.storeCredentials(this.authKey, this.userID);
 
   }
