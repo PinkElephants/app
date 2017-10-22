@@ -42,8 +42,7 @@ const appRoutes: Routes = [
     MatchedPageComponent,
     CardComponent,
     SkillsComponent,
-    CardPreviewComponent,
-    ReversePipe
+    CardPreviewComponent
   ],
   imports: [
     BrowserModule,
