@@ -1254,6 +1254,9 @@ var HackinderService = (function () {
         this.loading$ = new __WEBPACK_IMPORTED_MODULE_0_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](true);
     }
     HackinderService.prototype.addSkill = function (skill) {
+        if (!this.user$.getValue().skills) {
+            this.user$.next(Object.assign({}, this.user$.getValue(), { skills: [] }));
+        }
         var skills = this.user$.getValue().skills.slice();
         skills.push(skill);
         this.user$.next(Object.assign({}, this.user$.getValue(), { skills: skills }));
@@ -1332,7 +1335,6 @@ var HackinderService = (function () {
             .mergeMap(function (ids) { return _this.api.fetchUsers(ids); })
             .map(function (items) { return items.response; })
             .map(function (items) {
-            debugger;
             return items.map(function (item) {
                 var match = {
                     id: item.uid,
