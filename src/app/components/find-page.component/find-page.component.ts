@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy} from '@angular/core';
+import {Component, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {HackinderService} from "../../services/hackinder.service";
 
@@ -28,7 +28,7 @@ export class FindPageComponent implements OnInit, OnDestroy{
     }));
   }
   ngOnDestroy(){
-    this._subscriptions.map((item)=> item.unsubscribe(); )
+    this._subscriptions.map((item)=> item.unsubscribe())
   }
 }
 
