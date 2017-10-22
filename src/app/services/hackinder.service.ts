@@ -51,8 +51,7 @@ export class HackinderService {
 
   public getUser(id){
     return this.api.getUser(id).mergeMap(user => this.api.fetchUsers([id]), (hackUser: User, vkUser) => {
-     
-      this.user$.next(Object.assign({}, hackUser));
+      this.user$.next(Object.assign({}, hackUser, vkUser));
     });
   }
   public setLoading(bool: boolean){
