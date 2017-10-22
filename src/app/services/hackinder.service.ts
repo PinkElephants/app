@@ -25,14 +25,14 @@ export class HackinderService {
   }
   public deleteSkill(index: number){
     const skills = this.user$.getValue().skills;
-    skills.splice(1, index);
+    skills.splice(index, 1);
     this.user$.next(Object.assign({}, this.user$.getValue(), {skills: skills.slice()}));
   }
 
-  public setIdea(idea:string){
+  public updateIdea(idea:string){
     this.user$.next(Object.assign({}, this.user$.getValue(), {idea: idea}));
   }
-  public setSummary(summary:string){
+  public updateSummary(summary:string){
     this.user$.next(Object.assign({}, this.user$.getValue(), {summary: summary}));
   }
   public openFilters(){

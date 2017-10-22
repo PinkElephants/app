@@ -31,9 +31,6 @@ export class HomePageComponent implements  OnInit {
 
   }
 
-  summary: string;
-  idea: string;
-
   public loading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   ngOnInit(){
     this.route.params.subscribe((params)=>{
@@ -51,8 +48,6 @@ export class HomePageComponent implements  OnInit {
     });
   }
   submitUser(){
-    this.hackService.setIdea(this.idea);
-    this.hackService.setSummary(this.summary);
     this.hackService.updateUser().subscribe((response)=>{
       this.router.navigate(['/find']);
     });
